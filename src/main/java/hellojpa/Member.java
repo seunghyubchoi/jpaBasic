@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
-public class Member {
+public class Member extends BaseEntity {
     // 기본 키 매핑
     @Id
 
@@ -44,18 +44,6 @@ public class Member {
     // EnumType.String : enum 이름을 데이터베이스에 저장
     @Enumerated(EnumType.STRING)
     private RoleType roleType;
-
-    // 과거 버전
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
-
-    // 최신
-    // 어노테이션 없어도 생성
-    private LocalDate createDate;
-    private LocalDateTime createDateTime;
 
     // 문자 타입이면 CLOB, 나머지는 BLOB으로 알아서 매핑
     // 지정할 수 있는 속성 없음
